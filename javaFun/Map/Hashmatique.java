@@ -11,7 +11,7 @@ public class Hashmatique {
 
         System.out.println(userMap.get("song1"));
         
-        userMap.forEach((k, v) -> System.out.println(k + " " + v));
+        userMap.forEach((k, v) -> System.out.println(k + ": " + v));
     }
     
 }
