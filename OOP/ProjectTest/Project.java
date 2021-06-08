@@ -31,10 +31,8 @@ public void setDescription(String description){
     this.description = description;
 }
 
-public void elevatorPitch(){
-    HashMap<String, String> info = new HashMap<String, String>();
-    info.put(this.getName(), this.getDescription());
-    info.forEach((k, v) -> System.out.println(k + ": " + v));
+public String elevatorPitch(){
+    return this.name + ": " + this.description;
 }
     
 }

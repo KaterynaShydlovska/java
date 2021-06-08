@@ -5,7 +5,8 @@ public class ProjectTest {
         project.setDescription("First Java project");
         System.out.println(project.getName());
         System.out.println(project.getDescription());
-        project.elevatorPitch();
+        System.out.println(project.elevatorPitch());
     }
     
 }
+
