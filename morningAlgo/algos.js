@@ -84,4 +84,33 @@ function recursiveBS(arr, x, start = 0, end = arr.length - 1) {
         return recursiveBS(arr, x, mid + 1, end);
 }
 
-recursiveBS([5, 8, 9, 15, 17, 23, 24, 77], 34)
+recursiveBS([5, 8, 9, 15, 17, 23, 24, 77], 34);
+
+
+
+
+function removeDupes(arr) {
+    let obj = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        if (!obj[arr[i]]) {
+            obj[arr[i]] = 1;
+        } else {
+            obj[arr[i]] += 1;
+        }
+    }
+
+    for (let j = 0; j < arr.length; j++) {
+        if (obj[arr[j]] > 1) {
+            obj[arr[j]] -= 1;
+            arr.splice(j, 1);
+        }
+    }
+    // console.log(arr)
+    // console.log(obj)
+    return arr;
+
+}
+
+
+removeDupes([4, 7, 8, 8, 4, 2, 3])
