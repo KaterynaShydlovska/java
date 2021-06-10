@@ -12,6 +12,8 @@ public class BankAccount {
 	public BankAccount() {
 		this.accountNumber = this.accountNumberCreater();
 		numberOfAccounts++;
+		totalAmountOfMoneyStored += this.checkingBalance + this.savingsBalance;
+		
 	}
 	
 	private String accountNumberCreater() {
@@ -32,16 +34,17 @@ public class BankAccount {
 		return this.savingsBalance;
 	}
 	
-	public double deposit(Double amount, String accountNum, AccountType acoountType) {
+	public String deposit(Double amount, String accountNum, AccountType acoountType) {
 		if(acoountType == AccountType.CHEKING) {
 		this.checkingBalance += amount;
 		totalAmountOfMoneyStored+=amount;
-		return getCheckingBalance();
+		return "Checking balance: "+ getCheckingBalance();
 	}else {
 		this.savingsBalance += amount;
 		totalAmountOfMoneyStored+=amount;
-		return getSavingsBalance();
-	}	
+		return "Saving balance: " + getSavingsBalance();
+	}
+		
 }
 	
 
@@ -55,8 +58,8 @@ public class BankAccount {
 		return getCheckingBalance();	
 	}
 	
-	public double getTotalAmountOfMoneyStored(String accountNum) {
-		return totalAmountOfMoneyStored;
+	public static String getTotalAmountOfMoneyStored() {
+		return "Total amonut on all accounts: " + totalAmountOfMoneyStored;
 	}
 	
 	

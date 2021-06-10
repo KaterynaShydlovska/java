@@ -11,13 +11,15 @@ public class BankAccountTest {
 		System.out.println(katesAccount.withdraw(10.00, katesAccount.getAccountNumber()));
 		System.out.println(katesAccount.withdraw(1000.00, katesAccount.getAccountNumber()));
 		System.out.println(katesAccount.deposit(1000000.00, katesAccount.getAccountNumber(), AccountType.SAVING));
-		System.out.println(katesAccount.getTotalAmountOfMoneyStored(katesAccount.getAccountNumber()));
+		
 		
 		
 	
 		BankAccount mariasAccount = new BankAccount();
+		System.out.println(mariasAccount.deposit(300.00, mariasAccount.getAccountNumber(), AccountType.SAVING));
 		System.out.println(mariasAccount.getAccountNumber());
 		
+		System.out.println(BankAccount.getTotalAmountOfMoneyStored());
 		System.out.println(BankAccount.getAllAccounts());
 		
 		
