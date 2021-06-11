@@ -126,6 +126,9 @@ function removeDupes(arr) {
 }
 removeDupes([4, 7, 8, 8, 4, 2, 3])
 
+
+//matrix
+
 var big = [
     [67, 34, 45, 56],
     [98, 87, 76, 65],
@@ -142,8 +145,6 @@ var anotherSmall = [
     [67, 7],
     [43, 32]
 ]
-
-
 
 function matrixSearch(bigMatrix, smallMatrix) {
     for (let j = 0; j < bigMatrix.length; j++) {
@@ -176,10 +177,6 @@ function helper(bigMatrix, smallMatrix, j, k) {
     }
     return true;
 }
-
-
-
-
 
 console.log(matrixSearch(big, small)) //true
 console.log(matrixSearch(big, anotherSmall)) //false
