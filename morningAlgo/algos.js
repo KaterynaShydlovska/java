@@ -125,3 +125,61 @@ function removeDupes(arr) {
     return arr;
 }
 removeDupes([4, 7, 8, 8, 4, 2, 3])
+
+var big = [
+    [67, 34, 45, 56],
+    [98, 87, 76, 65],
+    [56, 67, 78, 89],
+    [54, 43, 32, 21]
+]
+
+var small = [
+    [67, 78],
+    [43, 32]
+]
+
+var anotherSmall = [
+    [67, 7],
+    [43, 32]
+]
+
+
+
+function matrixSearch(bigMatrix, smallMatrix) {
+    for (let j = 0; j < bigMatrix.length; j++) {
+        for (let k = 0; k < bigMatrix[j].length; k++) {
+            if (smallMatrix[0][0] === bigMatrix[j][k]) {
+                if (helper(bigMatrix, smallMatrix, j, k)) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function helper(bigMatrix, smallMatrix, j, k) {
+    let a = j;
+    let b = k;
+    for (let i = 0; i < smallMatrix.length; i++) {
+        for (let z = 0; z < smallMatrix[0].length; z++) {
+            if (a >= bigMatrix.length || b >= bigMatrix[0].length) {
+                return false;
+            }
+            if (smallMatrix[i][z] != bigMatrix[a][b]) {
+                return false;
+            }
+            b++;
+        }
+        a++;
+        b = k;
+    }
+    return true;
+}
+
+
+
+
+
+console.log(matrixSearch(big, small)) //true
+console.log(matrixSearch(big, anotherSmall)) //false
