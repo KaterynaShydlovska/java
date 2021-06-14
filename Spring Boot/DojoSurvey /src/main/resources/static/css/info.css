@@ -1,0 +1,29 @@
+.content{
+	display:flex;
+	justify-content: center;
+}
+.main{
+	  border: 1px solid black;
+	  width: 700px;
+}
+
+.title, .info{
+	margin-left: 30px;
+}
+h2{
+	text-decoration: underline;
+}
+
+.name{
+	margin-left: 100px;
+}
+.loc{
+	margin-left: 45px;
+}
+.lang{
+	margin-left: 18px;
+}
+.comment{
+	margin-left: 75px;
+}
+

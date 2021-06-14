@@ -1,0 +1,39 @@
+.content{
+	display:flex;
+	justify-content: center;
+}
+.main{
+	  align-items: center;
+	  display: flex;
+	  justify-content: center;
+	  margin-top:100px;
+	  border: 1px solid black;
+	  width: 700px;
+}
+
+.form{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.button{
+	margin-left: 200px;
+	margin-top: 10px;
+}
+.submit{
+	background-color: #6db7ff;
+	color: white;
+}
+.lable{
+	margin-right: 57px;
+}
+.lable1{
+	margin-right: 38px;
+}
+.lable2{
+	margin-right: 10px;
+}
+
+.form-group{
+	margin: 10px;
+}
