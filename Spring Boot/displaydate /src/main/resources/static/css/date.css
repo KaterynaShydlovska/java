@@ -1,0 +1,10 @@
+h1{
+	color: blue;
+}
+
+.date{
+	  align-items: center;
+	  display: flex;
+	  justify-content: center;
+	  margin-top:100px;
+}
