@@ -1,0 +1,32 @@
+.header{
+	display: flex;
+	justify-content: space-around;
+}
+.links{
+	display: flex;
+	margin-right: 15%;
+	
+}
+a{
+	margin-left: 20px;
+}
+.content{
+	display: block;
+	margin:auto;
+	width: 800px;
+}
+.name{
+	margin-left: 410px;
+}
+.creator{
+	margin-left: 400px;
+}
+.version{
+	margin-left: 400px;
+}
+.label{
+	margin-left: 20px;
+}
+.button{
+	margin-left: 570px;
+}
