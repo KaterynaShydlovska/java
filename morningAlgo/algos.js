@@ -245,3 +245,78 @@ sll1.addToBack(3);
 // sll1.display()
 sll1.reverse()
 sll1.display()
+
+class Node {
+    constructor(valueinput) {
+        this.value = valueinput;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DLL {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    //thursday
+    addfront(valueInput) {
+        let newNode = new Node(valueInput);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+
+        return this;
+
+    }
+
+    //thursday
+    addback(valueInput) {
+        let newNode = new Node(valueInput);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
+
+
+    }
+
+    //friday
+    removefront() {
+
+    }
+
+    removeBack() {
+
+    }
+
+
+    reverse() {
+
+    }
+    display() {
+        let runner = this.head;
+        while (runner) {
+            console.log(runner.value + " -->");
+            runner = runner.next;
+        }
+    }
+}
+
+let dll = new DLL();
+
+dll.addfront(5);
+dll.addfront(15);
+dll.addback(2);
+dll.addback(20);
+dll.display()
