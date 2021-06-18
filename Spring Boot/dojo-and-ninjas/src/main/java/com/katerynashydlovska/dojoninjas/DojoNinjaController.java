@@ -48,11 +48,15 @@ public class DojoNinjaController {
 	}
 	
 	@PostMapping("/ninja/create")
-	public String createNinja(@ModelAttribute("ninja") Ninja ninja, BindingResult result) {
+	public String createNinja(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			return "error.jsp";
+			List<Dojo> allDojos = this.appService.findAllDojos();
+			model.addAttribute("allDojos", allDojos);
+			return "NewNinja.jsp";
 		}else {
 			this.appService.createNinja(ninja);
+			List<Dojo> allDojos = this.appService.findAllDojos();
+			model.addAttribute("allDojos", allDojos);
 			return "NewNinja.jsp";
 		}
 	}
