@@ -291,32 +291,150 @@ class DLL {
 
     }
 
-    //friday
-    removefront() {
-
-    }
-
-    removeBack() {
-
-    }
-
-
-    reverse() {
-
-    }
-    display() {
-        let runner = this.head;
-        while (runner) {
-            console.log(runner.value + " -->");
-            runner = runner.next;
+    class Node {
+        constructor(valueinput) {
+            this.value = valueinput;
+            this.next = null;
+            this.prev = null;
         }
     }
-}
 
-let dll = new DLL();
+    class DLL {
+        constructor() {
+                this.head = null;
+                this.tail = null;
+            }
+            //thursday
+        addfront(valueInput) {
+            let newNode = new Node(valueInput);
+            if (!this.head) {
+                this.head = newNode;
+                this.tail = newNode;
+            } else {
+                newNode.next = this.head;
+                this.head.prev = newNode;
+                this.head = newNode;
+            }
 
-dll.addfront(5);
-dll.addfront(15);
-dll.addback(2);
-dll.addback(20);
-dll.display()
+            return this;
+
+        }
+
+        //thursday
+        addback(valueInput) {
+            let newNode = new Node(valueInput);
+            if (!this.head) {
+                this.head = newNode;
+                this.tail = newNode;
+            } else {
+                this.tail.next = newNode;
+                newNode.prev = this.tail;
+                this.tail = newNode;
+            }
+            return this;
+
+
+        }
+
+        isHeadCorrect() {
+            console.log(this.head.value)
+            console.log(this.head.prev)
+            console.log(this.head.next)
+
+
+
+        }
+
+        printValuesForward() {
+            let runner = this.head;
+            let result = ""
+            while (runner != null) {
+                result += `${runner.value}->`;
+
+                runner = runner.next;
+            }
+            console.log(result);
+            return this;
+        }
+
+        printValuesBackward() {
+            let runner = this.tail;
+            let result = ""
+            while (runner != null) {
+                result += `${runner.value}->`;
+                runner = runner.prev;
+            }
+            console.log(result);
+            return this;
+        }
+
+
+        //friday
+        removefront() {
+            if (!this.head) {
+                return "Empty list!"
+            } else {
+                this.head = this.head.next;
+                this.head.prev.next = this.head;
+                this.head.prev = null;
+
+            }
+
+        }
+
+        removeBack() {
+            if (!this.head) {
+                return "Empty list!"
+            } else {
+                this.tail.prev.next = null
+                this.tail = this.tail.prev
+
+
+            }
+
+
+        }
+
+        reverse() {
+            let runner = this.head;
+            let backward = this.tail;
+            while (runner != backward && runner.prev != backward) {
+                let temp = runner.value
+                runner.value = backward.value
+                backward.value = temp
+                runner = runner.next
+                backward = backward.prev
+            }
+            return this
+
+        }
+
+
+        recurseReverse(runner = this.head) {
+            if (runner === null) {
+                [this.head, this.tail] = [this.tail, this.head];
+                return this;
+            }
+            [runner.prev, runner.next] = [runner.next, runner.prev];
+            return this.recurseReverse(runner.prev);
+        }
+
+
+
+        display() {
+            let runner = this.head;
+            while (runner) {
+                console.log(runner.value + " -->");
+                runner = runner.next;
+            }
+        }
+
+    }
+
+    let dll = new DLL();
+
+    dll.addfront(5);
+    dll.addfront(15);
+    dll.addback(2);
+    dll.addback(20);
+    dll.display()
