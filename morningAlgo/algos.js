@@ -438,3 +438,56 @@ class DLL {
     dll.addback(2);
     dll.addback(20);
     dll.display()
+
+
+    class Node {
+        constructor(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+
+    class BST {
+        constructor() {
+            this.root = null;
+        }
+
+        add(value) {
+            let newNode = new Node(value);
+            if (!this.root) {
+                // console.log('here')
+                this.root = newNode;
+            } else {
+                this.insert(this.root, newNode);
+            }
+            return this;
+        }
+
+        insert(node, newNode) {
+            if (newNode.value > node.value) {
+                if (!node.right) {
+                    node.right = newNode;
+                } else {
+                    node.insert(node.left, newNode);
+                }
+            } else {
+                if (!node.left) {
+                    node.left = newNode;
+                } else {
+                    this.insert(node.left, newNode);
+                }
+
+            }
+
+        }
+    }
+
+
+
+    let bst1 = new BST()
+    bst1.add(12);
+    bst1.add(10)
+    bst1.add(11)
+    console.log(bst1.add(20));
