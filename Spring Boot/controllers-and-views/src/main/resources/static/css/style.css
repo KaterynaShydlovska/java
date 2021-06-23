@@ -1,0 +1,26 @@
+.main{
+	display:flex;
+	justify-content: space-around;
+	
+}
+.form-group{
+	margin: 10px;
+}
+.form-control{
+	margin-left: 48px;
+	
+}
+.form-control1{
+	margin-left: 82px;
+	
+	
+}
+.form-control2{
+	margin-left: 58px;
+	
+}
+
+.form-controlLog{
+	margin-left: 23px;
+}
+
