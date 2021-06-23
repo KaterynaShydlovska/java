@@ -585,6 +585,34 @@ class DLL {
                 this.printTree(node.right);
             }
         }
+        contains(value) {
+            if (!this.root) {
+                return "Empty!"
+            }
+
+            let runner = this.root;
+            while (runner) {
+                if (runner.value === value) {
+                    return true;
+                }
+                if (runner.value > value) {
+                    if (runner.left) {
+                        runner = runner.left;
+                    } else {
+                        runner = null;
+                    }
+                } else {
+
+                    if (runner.right) {
+                        runner = runner.right;
+                    } else {
+                        runner = null;
+                    }
+                }
+
+            }
+            return false;
+        }
     }
 
 
