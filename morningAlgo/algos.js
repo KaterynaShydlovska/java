@@ -555,10 +555,6 @@ class DLL {
             return min;
         }
 
-
-
-
-
         findMax() {
             let max = this.root.value;
             if (this.root.right) {
@@ -612,6 +608,86 @@ class DLL {
 
             }
             return false;
+        }
+
+        contains2(value) {
+            if (this.root == null) {
+                console.log("This tree is empty, it doesn't contain anything")
+                return false
+            } else {
+                let current = this.root
+                while (current != null) {
+                    //if the value is in the current node
+                    if (value == current.value) {
+                        return true
+                    } else if (value > current.value) {
+                        current = current.right;
+                    } else {
+                        current = current.left;
+                    }
+                }
+                return false
+            }
+        }
+
+        size(node) {
+            if (node == null) {
+                console.log("no size");
+                return false
+            } else {
+                return (this.size(node.left) + 1 + this.size(node.right))
+            }
+        }
+
+        height(node) {
+            if (node == null) {
+                return 0
+            } else {
+                let leftHeight = this.height(node.left)
+                let rightHeight = this.height(node.right)
+                if (leftHeight > rightHeight) {
+                    return leftHeight + 1
+                } else {
+                    return rightHeight + 1
+                }
+            }
+        }
+
+        height2(node) {
+            let leftcount = 1
+            let rightcount = 1
+            if (node.right != null && node.left != null) { //we need to compare the lengths on the right and left
+                rightcount += this.height(node.right)
+                leftcount += this.height(node.left)
+            } else if (node.right != null) {
+                rightcount += this.height(node.right)
+            } else if (node.left != null) {
+                leftcount += this.height(node.left)
+            }
+
+            console.log("leftcount: ", leftcount);
+            console.log("rightcount: ", rightcount)
+            if (leftcount > rightcount) {
+                return leftcount
+            } else {
+                return rightcount
+            }
+        }
+
+        height3(node) {
+            let left;
+            let right;
+            if (node == null) {
+                return false
+            } else {
+                left = this.height(node.left) + 1;
+                right = this.height(node.right) + 1;
+            }
+            if (left > right) {
+                return left;
+            } else {
+                return right;
+            }
         }
     }
 
