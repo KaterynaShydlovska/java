@@ -838,3 +838,75 @@ class DLL {
 
     // words.add("dog")
     // words.add("cat")
+
+    arr = [1, 4, 6, 8, 2, 10, 3, 5];
+
+function swap(arr, index1, index2) {
+  let temp = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = temp;
+}
+
+
+function bubleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (j = 0; j <= i; j++) {
+      console.log(i, "i", j, "j");
+      if (arr[i] < arr[j]) {
+        console.log('swap')
+        swap(arr, i, j);
+      }
+    }
+  }
+  return arr
+
+};
+bubleSort(arr);
+
+
+function swap(arr, index1, index2) {
+  let temp = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = temp;
+}
+
+function selectionSort(arr) {
+  let min;
+  for (var i = 0; i < arr.length; i++) {
+    // set minimum to this position
+    min = i;
+    //check the rest of the array to see if anything is smaller
+    for (j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    //if the minimum isn't in the position, swap it
+    if (i != min) {
+      swap(arr, i, min);
+    }
+  }
+
+  return arr;
+}
+console.log(selectionSort([5,4,2,6,8,14,1,3]));
+
+function selectionSort2(arr){
+    for(let i = 0; i < arr.length; ++i){
+        let mindex = i;
+        for(let j = i; j < arr.length; ++j){
+            if(arr[j] < arr[mindex]){
+                mindex = j;
+            }
+        }
+        let temp = arr[i];
+        arr[i] = arr[mindex];
+        arr[mindex] = temp;
+    }
+    return arr;
+}
+
+console.log(selectionSort2([5,4,2,6,8,14,1,3]));
+
+
+
