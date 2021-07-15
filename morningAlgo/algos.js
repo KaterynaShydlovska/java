@@ -982,4 +982,59 @@ const dedupe = (str) => {
   //"Snaps! crackles! pops!" -> "Snrackle ops!"
 
 
+  //You are given a string that may contain sequences of consecutive characters.
+//Create a function to shorten a string by including the character, then the 
+//number of times it appears. For "aaaabbcddd" return "a4b2c1d3"
+//no built in functions!!!! parseInt() is ok
+//gggag -> 3g1a1g
+ 
+const encode = (str) => {
+    let obj ={};
+    let result ="";
+    for(let i=0; i< str.length; i++){
+      if(!obj[str[i]]){
+        obj[str[i]] = 1;
+      }else{
+        obj[str[i]] += 1
+      }
+    }
+    
+  for(let j=0; j< str.length; j++){
+    if(obj[str[j]]){
+      result += str[j];
+      result += obj[str[j]];
+      j = j + obj[str[j]]-1;
+    }
+  }
+   return result;
+  }
+  console.log(encode("aaabbcccc"));
+  // console.log(encode("ddddeeeeeffgggg"));
+  // console.log(encode("aaaaabbbbbbbc"));
+  // console.log(encode("bb"));
+  
+  //given an encoded string, decode and return it
+  //given "a3b2c1d3" return "aaabbcddd"
+  //special note: can your function handle "g14f12"?
+  const decode = (str) => {
+    let counter;
+    let i =0;
+    let res ="";
+  
+    while(i< str.length){
+      let j= parseInt(str[i+1])
+      console.log(j)
+      while(j>0){
+        res+=str[i];
+        j--;
+      }
+      i+=2;
+    }
+       return res;       
+  }
+  
+  console.log(decode("a3b2c4"));
+  // console.log(decode("t2h10j4"));
+
+
 
