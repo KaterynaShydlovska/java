@@ -950,4 +950,36 @@ console.log(partition([3,5,1,2,4]));
 console.log(partition([7,2,10,15,1]));
 
 
+//Remove duplicate characters(case-sensitive) including
+//punctuation. Keep only the last instance of each character
+//and don't you dare use built in functions for this one!
+//"Snaps! crackles! pops!" -> "Snrackle ops!"
+//scoop dedupe!
+const dedupe = (str) => {
+    let obj ={};
+    let res =[];
+    for(let i=0; i< str.length; i++){
+        if(!obj[str[i]]){
+          obj[str[i]] =1;
+        }
+        else{
+           obj[str[i]] +=1;
+        }
+       
+    }
+    for(let j = str.length-1; j>=0; j--){
+      console.log('here')
+      if(obj[str[j]]){
+        res.unshift(str[j]);
+        delete obj[str[j]]
+      }
+    }
+      console.log(res);
+    return res.join('');
+  }
+  
+  console.log(dedupe("Snaps! crackles! pops!"))
+  //"Snaps! crackles! pops!" -> "Snrackle ops!"
+
+
 
