@@ -1036,5 +1036,103 @@ const encode = (str) => {
   console.log(decode("a3b2c4"));
   // console.log(decode("t2h10j4"));
 
+  //A pangram is a sentence or phrase that uses every letter of the alphabet
+//Write a function to return if a string contains at least one of every
+//letter(not case sensitive).
+//return true or false
+//no built in functions!! toUpperCase is OK
+//if(str[0] >= "A" && str[0] <= "Z") can be useful
+const isPangram = (str) => {
+    let obj ={
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true,
+      "E": true,
+      "F": true,
+      "G": true,
+      "H": true,
+      "I": true,
+      "J": true,
+      "K": true,
+      "L": true,
+      "M": true,
+      "N": true,
+      "O": true,
+      "P": true,
+      "R": true,
+      "S": true,
+      "T": true,
+      "W": true,
+      "X": true,
+      "Y": true,
+      "Z": true
+  //   }
+  // let newStr = str.toUpperCase();
+  //   for(let i=0; i< newStr.length; i++){
+  //     if(obj[newStr[i]]){
+  //       delete obj[newStr[i]];
+  //     }
+      
+  //   }
+  //   console.log(obj)
+  //   return Object.keys(obj).length === 0;  
+  }
+  
+  //  console.log(isPangram("Waxy and quivering, jocks fumble the pizza."));//returns true
+  // console.log(isPangram("The quick brown fo jumps over the lazy sleeping dog"));//missing x, returns false
+  // console.log(isPangram("Sphinx of black quartz, judge my vow"));
+  
+  //Write a function to check if a string contains exactly one of every letter
+  //again, not case sensitive and it's ok to use toUpperCase
+  const isPerfectPangram = (str) => {
+     let obj ={
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 0,
+      "H": 0,
+      "I": 0,
+      "J": 0,
+      "K": 0,
+      "L": 0,
+      "M": 0,
+      "N": 0,
+      "O": 0,
+      "P": 0,
+      "R": 0,
+      "S": 0,
+      "T": 0,
+      "W": 0,
+      "X": 0,
+      "Y": 0,
+      "Z": 0
+    }
+    
+    let newStr = str.toUpperCase();
+    for(let i=0; i< newStr.length; i++){
+      if(newStr[i].match(/[A-Z]/i)){
+        obj[newStr[i]]+=1;
+      }
+    }
+  for (const [key, value] of Object.entries(obj)) {
+   if(value === 0 || value > 1){
+     return false;
+   }
+  }
+  
+  
+  return true;
+  
+   
+  }
+  
+  isPerfectPangram("The quick brown fox jumps over the lazy sleeping dog");
+  //should be false
+  // console.log(isPerfectPangram("qrstuvwxyzabcdefghijkLMNOP"));//should be true
+
 
 
