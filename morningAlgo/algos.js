@@ -1136,3 +1136,90 @@ const isPangram = (str) => {
 
 
 
+  let arr1 = [1, 2, 2, 2, 7];
+
+  let arr2 = [2, 2, 6, 6, 7];
+  
+  //efficiently combine two sorted arrays into an array containing the sorted intersection of the two. Example: given [1,2,2,2,7] and [2,2,6,6,7], return [2,2,7]
+  // result should look like this --> [2, 2, 7]
+  
+  //another example
+  let arr3 = [5,6,8,8,9,12];
+  let arr4 = [1,2,3,4,5,8,8,8];
+  
+  //expected result
+  // result = [5,8, 8]
+  
+  function intersection_of_the_twoArr(arr1, arr2){
+    let res=[];
+  
+    for(let i=0; i< arr1.length; i++){
+      console.log(arr1)
+      for(let j=0; j< arr2.length; j++){
+        if(arr1[i] === arr2[j]){
+          res.push(arr1[i]);
+          // console.log(arr1[i], arr2[j])
+          arr1.splice(i,1);
+        }
+      }
+    }
+    return res;
+  }
+  
+  intersection_of_the_twoArr(arr1, arr2);
+  // intersection_of_the_twoArr(arr3, arr4);
+
+
+
+
+let arr1 = [1, 2, 2, 2, 7];
+let arr2 = [2, 2, 6, 6, 7];
+//result --> [1,2,2,2,6,6,7]
+
+
+// //another example
+let arr3 = [5,6,8,8,9,12];
+let arr4 = [1,2,3,4,5,8,8,8];
+//result --> [1,2,3,4,5,6,8,8,8,9,12]
+
+
+function unionize(arr1,arr2){
+  let res = [];
+  let i=0;
+  let j =0;
+  while(i< arr1.length && j< arr2.length){
+    if(arr1[i] === arr2[j]){
+       res.push(arr1[i])
+       i++
+       j++
+    } else if(arr1[i] < arr2[j]){
+      res.push(arr1[i])
+      i++
+    }else{
+      res.push(arr2[j])
+      j++
+    }
+  }
+
+  if(i< arr1.length){
+    while(i<arr1.length ){
+      res.push(arr1[i]);
+      i++
+    }
+  }
+
+  if(j< arr2.length){
+    while(j< arr2.length){
+      res.push(arr2[j]);
+      j++;
+    }
+  }
+  return res;
+
+}
+
+
+console.log(unionize(arr1,arr2)) //[1,2,2,2,6,6,7]
+console.log(unionize(arr3,arr4)) //[1,2,3,4,5,6,8,8,8,9,12]
+
+
