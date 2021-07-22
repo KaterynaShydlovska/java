@@ -1223,3 +1223,34 @@ console.log(unionize(arr1,arr2)) //[1,2,2,2,6,6,7]
 console.log(unionize(arr3,arr4)) //[1,2,3,4,5,6,8,8,8,9,12]
 
 
+class Heap{
+    constructor(){
+        this.heap = [null]
+    }
+
+    insert(val){
+        this.heap.push(val)
+        let cur = this.heap.length -1;
+        let parent = Math.floor(cur/2);
+        while(this.heap[parent] > this.heap[cur]){
+          let temp = this.heap[parent];
+          this.heap[parent] = this.heap[cur];
+          this.heap[cur] = temp;
+          cur = parent;
+          parent = Math.floor(cur/2);
+        }
+        return this.heap;
+        //figure out the index number of parent and see if value in parent index is greater, if it is, we must swap (to continuously do this, might need a loop, preferably a while loop)
+    }
+}
+
+
+let heap1 = new Heap()
+
+heap1.insert(5)
+heap1.insert(3)
+heap1.insert(10)
+heap1.insert(1)
+heap1.insert(2)
+
+
